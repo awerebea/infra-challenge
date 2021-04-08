@@ -1,0 +1,11 @@
+[Unit]
+Description=infra-challenge app
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=docker run --rm -p 4000:4000 registry.gitlab.com/salamachinas/infra-challenge
+User=root
+
+[Install]
+WantedBy=multi-user.target

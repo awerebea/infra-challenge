@@ -1,0 +1,10 @@
+---
+- name: application container
+  community.docker.docker_container:
+    name: myapplication
+    container_default_behavior: "no_defaults"
+    image: registry.gitlab.com/salamachinas/infra-challenge
+    state: started
+    pull: yes
+    ports:
+    - "4000:4000"

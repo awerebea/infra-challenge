@@ -1,0 +1,32 @@
+---
+# This playbook deploys the whole application stack on the Jenkins-server.
+- name: Setup nginx server
+  hosts: nginx
+  become: yes
+
+  # tasks:
+  #   - name: Update apt packages
+  #     apt:
+  #       update_cache: yes
+
+  roles:
+    - nginx
+
+  handlers:
+    - include: handlers/main.yml
+
+- name: Setup nodes with app
+  hosts: nodes
+  become: yes
+
+  # tasks:
+  #   - name: Update apt packages
+  #     apt:
+  #       update_cache: yes
+
+  roles:
+    - docker
+    - app
+
+  handlers:
+    - include: handlers/main.yml

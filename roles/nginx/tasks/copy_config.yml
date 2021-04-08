@@ -1,0 +1,17 @@
+---
+- name: Remove default site from sites-enabled
+  file:
+    path: /etc/nginx/sites-enabled/default
+    state: absent
+
+- name: Copy nginx config template for jenkins service to sites-available
+  template:
+    src: ../templates/infra.conf
+    dest: /etc/nginx/sites-available/infra.conf
+  notify: restart_nginx
+
+- name: Create symlink infra.conf config to sites-enabled
+  file:
+    src: /etc/nginx/sites-available/infra.conf
+    dest: /etc/nginx/sites-enabled/infra.conf
+    state: link
