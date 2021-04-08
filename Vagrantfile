@@ -7,6 +7,7 @@ Vagrant.configure("2") do |config|
     nginx.vm.box = "debian/contrib-buster64"
     nginx.vm.hostname = "infrachallenge"
     nginx.vm.network "private_network", ip: "10.2.2.100"
+    nginx.vm.network "public_network", type: "dhcp"
     config.vm.provider "virtualbox" do |v|
       v.memory = 1024
       v.cpus = 1
