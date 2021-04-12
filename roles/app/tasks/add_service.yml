@@ -1,9 +1,4 @@
 ---
-- name: Check if launch script exist in `/etc/systemd/system/`
-  stat:
-    path: "/etc/systemd/system/infra_app.service"
-  register: launch_script_exists_check
-
 - name: Copy launch script template in `/etc/systemd/system/`
   template:
     src: ../src/infra_app.service
@@ -11,8 +6,6 @@
     owner: root
     group: root
     mode: 0744
-  when: launch_script_exists_check is defined and
-        launch_script_exists_check.stat.exists == false
 
 - name: Start app and enable auto launch after reboot
   service:

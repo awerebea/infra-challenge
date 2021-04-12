@@ -1,8 +1,9 @@
 ---
 - name: Install nginx
   ansible.builtin.package:
-    name: nginx
-    state: latest
+    name: nginx=1.14.2-2+deb10u3
+    state: present
+
     update_cache: yes
   notify:
     - enable_nginx

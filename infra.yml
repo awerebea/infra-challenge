@@ -4,11 +4,6 @@
   hosts: nginx
   become: yes
 
-  # tasks:
-  #   - name: Update apt packages
-  #     apt:
-  #       update_cache: yes
-
   roles:
     - nginx
 
@@ -18,11 +13,6 @@
 - name: Setup nodes with app
   hosts: nodes
   become: yes
-
-  # tasks:
-  #   - name: Update apt packages
-  #     apt:
-  #       update_cache: yes
 
   roles:
     - docker

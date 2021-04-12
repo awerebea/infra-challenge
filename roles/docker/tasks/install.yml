@@ -8,9 +8,6 @@
       - gnupg2
       - curl
       - python3-pip
-      - virtualenv
-      - python3-setuptools
-    # force_apt_get: yes
     state: latest
     update_cache: yes
 
@@ -26,9 +23,10 @@
 
 - name: Install Docker
   ansible.builtin.package:
-    name: "docker-ce"
-    state: latest
+    name: docker-ce=5:19.03.15~3-0~debian-stretch
+    state: present
 
-- name: Install Docker Module for Python
+- name: Install Docker module for Python (docker_container module dependency)
   pip:
     name: docker
+    state: present

@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=docker run --rm -p 4000:4000 registry.gitlab.com/salamachinas/infra-challenge
+ExecStart=docker container start infra-app
 User=root
 
 [Install]
