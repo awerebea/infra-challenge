@@ -14,12 +14,13 @@ To launch deploy process in the root of this repository run:
 ```sh
 $ vagrant up
 ```
-Once the deployment is complete, you can determine the IP address assigned to the web server:
+Once the deployment is complete, you can determine the public IP address assigned to the web server:
 ```sh
 $ echo $(vagrant ssh nginx -c "ip address show eth2 | grep 'inet ' |
 sed -e 's/^.*inet //' -e 's/\/.*$//'")
 ```
 ![show_ip](https://user-images.githubusercontent.com/63558838/114105321-359efd00-98d5-11eb-96f8-650cda9198c3.png)<br/>
+Also you can use the hardcoded private IP `10.2.2.100` to access the webserver.<br/><br/>
 Now you can try some tests.
 <br/><br/>Unsupported URI:
 ```sh
