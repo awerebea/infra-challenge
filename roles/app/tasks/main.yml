@@ -1,3 +1,2 @@
 ---
-- include: create_container.yml
-- include: add_service.yml
+- include: launch_container.yml

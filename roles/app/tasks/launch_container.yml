@@ -4,7 +4,8 @@
     name: infra-app
     container_default_behavior: "no_defaults"
     image: registry.gitlab.com/salamachinas/infra-challenge
-    state: present
+    state: started
+    restart_policy: always
     pull: yes
     ports:
     - "4000:4000"
